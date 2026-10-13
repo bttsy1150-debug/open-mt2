@@ -14,6 +14,7 @@ export default class RedisCacheProvider implements CacheProvider {
         config: { CACHE_HOST: string; CACHE_PORT: number; CACHE_PING_INTERVAL: number };
     }) {
         this.client = redis.createClient({
+            url: process.env.REDIS_URL,
             socket: {
                 host: config.CACHE_HOST,
                 port: config.CACHE_PORT,
