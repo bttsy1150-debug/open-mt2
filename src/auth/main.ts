@@ -1,6 +1,10 @@
 import { container } from '@/auth/Container';
 import AuthApplication from '@/auth/app/AuthApplication';
 
+// PORT ve HOST ayarlarını environment'dan al
+process.env.PORT = process.env.PORT || '3000';
+process.env.HOST = process.env.HOST || '0.0.0.0';
+
 const app = new AuthApplication(container.cradle as any);
 
 app.start().catch((error) => {
